@@ -3,7 +3,7 @@ import { auth } from "./firebase.js";
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
-    onAuthStateChanged,
+    updateProfile,
     signOut
 } from "firebase/auth";
 
@@ -11,11 +11,16 @@ class AuthService {
     //which user is here
     client;
     // Create a new user
-    async createUser({ email, password }) {
+    async createUser({ email, password, userName }) {
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            console.log("Account created ::", userCredential.user);
-            return userCredential.user; // return user object
+            await updateProfile(userCredential.user, {
+                displayName: userName
+            });
+
+            console.log("Account created ::", userCredential.user.displayName);
+            this.client = userCredential.user;
+            return userCredential.user;
         } catch (error) {
             console.error("Create account error ::", error.message);
             throw error; // let caller handle it
@@ -26,7 +31,7 @@ class AuthService {
     async login({ email, password }) {
         try {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
-            console.log("Logged in ::", userCredential.user);
+            console.log("Logged in ::", userCredential.user.displayName);
             return userCredential.user;
         } catch (error) {
             console.error("Login error ::", error.message);
@@ -35,11 +40,11 @@ class AuthService {
     }
 
     //logout
-    async logout(){
-        try{
-           await signOut(auth);
+    async logout() {
+        try {
+            await signOut(auth);
             console.log("The user has logged out...");
-        } catch(error){
+        } catch (error) {
             console.error(":: Logout error ::")
             throw error;
         }

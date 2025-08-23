@@ -1,8 +1,16 @@
 import DarkVeil from '../DarkVeil/DarkVeil.jsx';
 import UseLogoLoop from '../LogoLoop/UseLogoLoop.jsx';
 import { Link } from 'react-router-dom';
+import {useEffect, useState} from 'react'
 
 function Landing() {
+ const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    // trigger animation when component loads
+    setAnimate(true);
+  }, []);
+
     return (
         <div className='w-full min-h-dvh relative text-white bg-black'>
             <DarkVeil />
@@ -24,14 +32,14 @@ function Landing() {
 
 
                 {/* Hero Heading */}
-                <div>
+                <div className={`${animate? "aos" : ""} `}>
                     <p className='mx-auto text-center font-extrabold max-w-4xl text-[clamp(1.5rem,6vw,3rem)] leading-tight'>
                         Your notes. Your workflow. <br />Your vault.
                     </p>
                 </div>
 
                 {/* Subtext */}
-                <div>
+                <div className={`${animate ? "aos" : ""}`}>
                     <p className='mx-auto text-center font-semibold max-w-3xl text-[clamp(1rem,4vw,1.5rem)] leading-snug px-2 sm:px-4'>
                         Stay organized with powerful note management. <br />
                         Fast, reliable, and built for productivity.
@@ -39,9 +47,9 @@ function Landing() {
                 </div>
 
                 {/* CTA Button */}
-                <div className='w-fit mx-auto'>
+                <div className={`w-fit mx-auto ${animate ? "aos" : ""}`}>
                     <Link to={"/login"}>
-                    <button className='rounded-full cursor-pointer bg-white text-gray-700 font-semibold px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base'>
+                    <button className='rounded-full cursor-pointer bg-white text-gray-700 duration-200 hover:text-gray-800 font-semibold px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base'>
                         Get Started
                     </button>
                     </Link>

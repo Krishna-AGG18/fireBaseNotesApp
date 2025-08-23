@@ -4,6 +4,7 @@ import authService from './firebase/user';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from './firebase/firebase';
 import Landing from './pages/Landing';
+import { Dashboard } from './pages';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -32,10 +33,7 @@ function App() {
   return (
     <>
       {user ? (
-        <div className='text-white'>
-          <h1>welcome {user.email}</h1>
-          <button onClick={handleLogout}>Logout</button>
-        </div>
+        <Dashboard />
       ) : (
         <Landing />
       )}
