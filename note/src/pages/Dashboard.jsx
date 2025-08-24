@@ -10,7 +10,7 @@ function Dashboard() {
     const navigate = useNavigate()
     const items = [
   { name: "⊞ DashBoard", link: "/dashboard" },
-  { name: "✏️ Add Post", link: "/dashboard/addPost" },
+  { name: "✏️ Add Note", link: "/dashboard/addNote" },
   { name: "🎯 Summary", link: "/dashboard/summary" }
 ]
 

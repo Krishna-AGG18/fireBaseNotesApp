@@ -18,7 +18,7 @@ createRoot(document.getElementById('root')).render(
         {/* Protected Dashboard routes */}
         <Route path="/dashboard" element={<Dashboard />}>
           <Route index element={<Home />} />   {/* default: "/" */}
-          <Route path="addPost" element={<AddPost />} />
+          <Route path="addNote" element={<AddPost />} />
           <Route path="summary" element={<Summary />} />
         </Route>
       </Routes>

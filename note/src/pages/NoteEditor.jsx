@@ -5,7 +5,7 @@ function NoteEditor() {
   const [content, setContent] = useState("");
 
   return (
-    <div className="h-full w-full">
+    <div className="h-full w-full ">
       <Editor
         apiKey= {import.meta.env.VITE_TINYMCE_API_KEY} 
         value={content}
@@ -23,6 +23,7 @@ function NoteEditor() {
             "bullist numlist outdent indent | removeformat | help",
           skin: "oxide-dark", // dark mode skin
           content_css: "dark",
+           autoresize_bottom_margin: 20, 
         }}
         onEditorChange={(newValue) => setContent(newValue)}
       />
