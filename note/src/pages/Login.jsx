@@ -1,7 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import authService from '../firebase/user';
-
+import { auth } from '../firebase/firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -10,6 +11,16 @@ function Login() {
   const [password, setPass] = useState("");
   const [errorLogin, setErrorLogin] = useState(false);
   const [animate, setAnimate] = useState(false);
+
+
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigate("/dashboard"); // already logged in → kick out of login
+      }
+    });
+    return unsub;
+  }, [navigate]);
 
   useEffect(() => {
     // trigger animation when component loads
@@ -20,7 +31,7 @@ function Login() {
     e.preventDefault();
     setErrorLogin(false);
     const user = await authService.login({ email, password });
-    if (user) navigate("/");
+    if (user) navigate("/dashboard");
     else setErrorLogin(true);
   };
 

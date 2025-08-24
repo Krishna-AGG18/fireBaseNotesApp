@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import authService from '../firebase/user';
-
+import { auth } from '../firebase/firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
@@ -14,7 +15,15 @@ function SignUp() {
     // trigger animation when component loads
     setAnimate(true);
   }, []);
-
+  
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigate("/dashboard"); // already logged in → kick out of login
+      }
+    });
+    return unsub;
+  }, [navigate]);
   const handleSignUp = async (e) => {
     e.preventDefault();
     setErrorSignUp(false);
