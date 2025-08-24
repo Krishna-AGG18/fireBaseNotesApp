@@ -5,6 +5,8 @@ import authService from '../firebase/user';
 function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
+
+  const [userName, setusername] = useState("")
   const [password, setPass] = useState("");
   const [errorLogin, setErrorLogin] = useState(false);
   const [animate, setAnimate] = useState(false);
@@ -38,11 +40,15 @@ function Login() {
 
       <div className={`mt-10 max-w-4xl mx-auto flex ${animate ? "aos" : ""}`}>
         <div className='flex-1 sm:flex-1/2 bg-[#adacb5] text-[#2D3142] h-[70dvh] p-4 max-sm:rounded-r-3xl sm:rounded-l-3xl max-sm:mx-4'>
-          <form onSubmit={handleLogin} className='bg-[#d8d5db] w-full h-full max-sm:rounded-r-3xl sm:rounded-l-3xl text-[#2D3142] flex flex-col p-4 gap-2'>
+          <form onSubmit={handleLogin} className='bg-[#d8d5db] w-full h-full max-sm:rounded-r-3xl sm:rounded-l-3xl text-[#2D3142] flex flex-col p-4 gap-2 justify-center'>
             <h1 className='text-center font-bold text-[18px]'>LogIn</h1>
             <div>
               <p className='text-red-600 text-center'>{errorLogin && "Error in login, try again!"}</p>
             </div>
+            <label htmlFor="username" className='font-semibold'>Username </label>
+            <input type="text" name="username" id="username" placeholder='john doe ' className='p-2 bg-[#adacb5] text-[#2D3142] rounded-md' required onChange={(e) => {
+              setusername(e.target.value)
+            }} />
             <label htmlFor="email" className='font-semibold'>Email</label>
             <input type="email" id="email" placeholder='john@gmail.com' className='p-2 bg-[#adacb5] text-[#2D3142] rounded-md' required onChange={(e) => setEmail(e.target.value)} />
 
