@@ -25,3 +25,13 @@
     transform: scale(1);
   }
 }
+
+.scroll-grid::-webkit-scrollbar{
+  width: 4px;
+}
+.scroll-grid::-webkit-scrollbar-thumb{
+  background: #565656 ;
+}
+.scroll-grid::-webkit-scrollbar-track{
+  background: #121212;
+}

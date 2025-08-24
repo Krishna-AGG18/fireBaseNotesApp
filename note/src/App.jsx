@@ -24,9 +24,9 @@ function App() {
 
   if (loading) {
     return (
-      <div className="w-full min-h-dvh flex justify-center items-center text-white bg-black">
-        <p className="animate-pulse">Loading...</p>
-      </div>
+      <div className="text-white w-full h-screen bg-white flex justify-center animate-pulse">
+        <img src="https://i.pinimg.com/736x/16/99/b3/1699b3df4fdf77d8434d039e76ad269b.jpg" alt="Loading..." />
+    </div>
     );
   }
 
