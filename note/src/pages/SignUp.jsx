@@ -73,8 +73,8 @@ function SignUp() {
             </p>
           </form>
         </div>
-        <div className='max-sm:hidden flex-1/2 bg-[#d8973c] text-[#d8d5db] p-2 rounded-r-3xl w-full'>
-          <img src="https://i.pinimg.com/736x/87/2a/53/872a53adae6d5eb103b228e2c7f590b3.jpg" alt="funny image" className='rounded-r-3xl ' /> </div>
+        <div className='max-sm:hidden flex-1/2 bg-[#d8973c] text-[#d8d5db] p-2 rounded-r-3xl w-full  flex'>
+          <img src="https://i.pinimg.com/736x/87/2a/53/872a53adae6d5eb103b228e2c7f590b3.jpg" alt="funny image" className=' object-cover rounded-r-3xl ' /> </div>
 
       </div>
     </div>

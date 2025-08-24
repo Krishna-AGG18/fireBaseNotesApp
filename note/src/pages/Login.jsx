@@ -56,8 +56,8 @@ function Login() {
             </p>
           </form>
         </div>
-        <div className='max-sm:hidden flex-1/2 bg-[#2d3142] text-[#d8d5db] p-2 rounded-r-3xl w-full'>
-          <img src="https://i.pinimg.com/736x/d8/d6/02/d8d602e5dbdce8ec65c4c0e6101e48c6.jpg" alt="funny" className='rounded-r-3xl' />
+        <div className='max-sm:hidden flex-1/2 bg-[#2d3142] text-[#d8d5db] p-2 rounded-r-3xl w-full flex'>
+          <img src="https://i.pinimg.com/736x/d8/d6/02/d8d602e5dbdce8ec65c4c0e6101e48c6.jpg" alt="funny" className='rounded-r-3xl object-cover' />
         </div>
       </div>
     </div>
