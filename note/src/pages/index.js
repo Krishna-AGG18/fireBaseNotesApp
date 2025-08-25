@@ -5,5 +5,4 @@ import Dashboard from "./Dashboard";
 import Home from './Home'
 import Summary from "./Summary";
 import AddPost from "./AddPost";
-import NoteEditor from "./NoteEditor";
-export {Landing, Login, SignUp, Dashboard, Home,Summary,AddPost,NoteEditor};
+export {Landing, Login, SignUp, Dashboard, Home,Summary,AddPost};

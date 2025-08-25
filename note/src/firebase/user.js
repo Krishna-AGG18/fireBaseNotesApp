@@ -6,6 +6,9 @@ import {
     updateProfile,
     signOut
 } from "firebase/auth";
+import { db } from "./firebase.js";
+import { onValue, ref, set } from "firebase/database";
+
 
 class AuthService {
     //which user is here
@@ -49,6 +52,39 @@ class AuthService {
             throw error;
         }
     }
+
+    async addNoteToDatabase(note) {
+        try {
+            await set(ref(db, "users/" + note.owner + "/notes/" + note.id), note);
+        } catch (error) {
+            console.error(":: Database error ::")
+            throw error;
+        }
+    }
+
+    async readNotes(callback) {
+        const user = auth.currentUser;
+        if (!user) return;
+
+        const noteRef = ref(db, "users/" + user.uid + "/notes");
+
+        onValue(noteRef, (snap) => {
+            const data = snap.val();
+            if (data) {
+                const notes = Object.entries(data).map(([id, note]) => ({
+                    id,
+                    ...note
+                }));
+                callback(notes);
+            } else {
+                callback([]); // empty list
+            }
+        });
+    }
+
+
+
+
 
 }
 

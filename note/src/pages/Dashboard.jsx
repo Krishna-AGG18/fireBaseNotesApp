@@ -8,16 +8,18 @@ import { SiFirebase } from 'react-icons/si'
 function Dashboard() {
     const [user, setUser] = useState(null);
     const navigate = useNavigate()
+    
     const items = [
-  { name: "⊞ DashBoard", link: "/dashboard" },
-  { name: "✏️ Add Note", link: "/dashboard/addNote" },
-  { name: "🎯 Summary", link: "/dashboard/summary" }
-]
+        { name: "⊞ DashBoard", link: "/dashboard" },
+        { name: "✏️ Add Note", link: "/dashboard/addNote" },
+        { name: "🎯 Summary", link: "/dashboard/summary" }
+    ]
 
     useEffect(() => {
         const unsub = onAuthStateChanged(auth, (u) => {
             setUser(u);
         });
+       
         return unsub; // cleanup
     }, []);
 
@@ -50,6 +52,7 @@ function Dashboard() {
                                 {
                                     items.map((item, ind) => (
                                         <NavLink
+                                            end={item.link === "/dashboard"}   // only for dashboard link
                                             to={item.link}
                                             key={ind + 1}
                                             className={({ isActive }) =>
@@ -93,7 +96,7 @@ function Dashboard() {
             </div>
 
             {/*container main */}
-            <div className="bg-[#1e1e1e] w-full h-full p-4 rounded-2xl overflow-hidden">
+            <div className="bg-[#1e1e1e] w-full h-full p-4 rounded-2xl overflow-y-auto scroll-grid">
                 <Outlet />
             </div>
 
