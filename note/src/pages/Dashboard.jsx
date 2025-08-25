@@ -22,7 +22,8 @@ function Dashboard() {
        
         return unsub; // cleanup
     }, []);
-
+    const person = auth.currentUser;
+    if(!person) navigate("/")
     const handleLogout = () => {
         authService.logout();
         navigate("/")
