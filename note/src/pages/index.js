@@ -5,4 +5,6 @@ import Dashboard from "./Dashboard";
 import Home from './Home'
 import Summary from "./Summary";
 import AddPost from "./AddPost";
-export {Landing, Login, SignUp, Dashboard, Home,Summary,AddPost};
+import Note from "./Note";
+
+export {Landing, Login, SignUp, Dashboard, Home,Summary,AddPost,Note};

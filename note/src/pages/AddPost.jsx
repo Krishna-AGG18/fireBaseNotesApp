@@ -12,9 +12,11 @@ function AddPost() {
   const navigate = useNavigate()
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (u) => {
-      setUser(u);
-      console.log(u);
-
+      if (u) {
+        setUser(u);
+      } else {
+        navigate("/"); // redirect if not logged in
+      }
     });
     return unsub; // cleanup
   }, []);
@@ -23,15 +25,18 @@ function AddPost() {
     if (content.trim() !== "") {
 
       const noteData = {
-        id:Date.now().toString(),
+        id: Date.now().toString(),
         owner: user.uid,
-        title : title,
-        content : content,
+        title: title,
+        content: content,
       };
       console.log("Saved Note:", noteData);
       authService.addNoteToDatabase(noteData);
       setTitle("")
       setContent("")
+      setTimeout(() => {
+        navigate("/dashboard")
+      }, 1000);
     }
   };
 

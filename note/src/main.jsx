@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import {Home, Login, SignUp,Dashboard, AddPost, Summary } from '../src/pages/index.js'
+import {Home, Login, SignUp,Dashboard, AddPost, Summary,Note } from '../src/pages/index.js'
 import './index.css'
 
 import App from './App.jsx'
@@ -20,6 +20,7 @@ createRoot(document.getElementById('root')).render(
           <Route index element={<Home />} />   {/* default: "/" */}
           <Route path="addNote" element={<AddPost />} />
           <Route path="summary" element={<Summary />} />
+          <Route path='/dashboard/:id' element={<Note />} />
         </Route>
       </Routes>
     </BrowserRouter>

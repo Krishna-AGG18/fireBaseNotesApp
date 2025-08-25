@@ -7,7 +7,7 @@ import {
     signOut
 } from "firebase/auth";
 import { db } from "./firebase.js";
-import { onValue, ref, set } from "firebase/database";
+import { get, onValue, ref, remove, set, update } from "firebase/database";
 
 
 class AuthService {
@@ -83,8 +83,53 @@ class AuthService {
     }
 
 
+    //delete note from db
+    async deleteNote(noteId) {
+        try {
+            const user = auth.currentUser;
+            if (!user) {
+                console.error("No user logged in");
+                return;
+            }
 
+            const noteRef = ref(db, `users/${user.uid}/notes/${noteId}`);
+            await remove(noteRef);
 
+            console.log("Note deleted successfully!");
+            // Optional: update local state
+            // setNotes((prev) => prev.filter(note => note.id !== noteId));
+        } catch (err) {
+            console.error("Error deleting note:", err);
+        }
+    }
+
+    async searchById(noteId) {
+        try {
+            const user = auth.currentUser;
+            if (!user) {
+                console.error("No user logged in");
+                return;
+            }
+            const noteRef = ref(db, `users/${user.uid}/notes/${noteId}`);
+            const snap = await get(noteRef);
+            if (snap.exists()) {
+                return snap.val();
+            } else {
+                return null
+            }
+        } catch (err) {
+            console.log("Error getting note by id", err);
+
+        }
+    }
+
+    async updateNote(noteId, updatedContent) {
+        const user = auth.currentUser;
+        if (!user) throw new Error("No user logged in");
+
+        const noteRef = ref(db, `users/${user.uid}/notes/${noteId}`);
+        await update(noteRef, updatedContent);
+    }
 
 }
 
