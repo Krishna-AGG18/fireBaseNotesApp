@@ -44,6 +44,20 @@ function Summary() {
     );
   }
 
+  if (notes.length === 0) {
+    return (
+      <div className="p-4 text-white overflow-y-auto scroll-grid min-h-screen">
+        <h1 className="text-2xl font-bold border-b border-[#565656] pb-1">
+          📒 Notes Summary : No Notes
+        </h1>
+
+        <div className="text-white w-full h-screen bg-white flex justify-center animate-pulse rounded-2xl mt-1">
+          <img src="https://i.pinimg.com/1200x/0d/be/bc/0dbebcf58880f2c06c305373c98fc71e.jpg" alt="Loading..." className="rounded-2xl h-full w-full object-cover"/> 
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="p-4 text-white overflow-y-auto scroll-grid min-h-screen">
       <h1 className="text-2xl font-bold border-b border-[#565656] pb-1">

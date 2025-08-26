@@ -4,6 +4,7 @@ import { auth } from '../firebase/firebase'
 import authService from '../firebase/user';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import { SiFirebase } from 'react-icons/si'
+import UseCardNav from '../CardNav/UseCardNav';
 
 function Dashboard() {
     const [user, setUser] = useState(null);
@@ -85,7 +86,7 @@ function Dashboard() {
             </div>
 
             {/* Navbar */}
-            <div className='flex flex-col md:flex-row justify-between px-4 items-center w-full md:gap-12 h-fit gap-2'>
+            {/* <div className='flex flex-col md:flex-row justify-between px-4 items-center w-full md:gap-12 h-fit gap-2'>
                 <div className='flex items-center justify-between  gap-2  max-md:w-full '>
                     <div className='flex items-center justify-center gap-2 '>
                         <SiFirebase />
@@ -102,10 +103,13 @@ function Dashboard() {
                         <input type="text" name="search" id="search" placeholder='Search by title...' className='bg-[#0c0c0f] w-full px-4 py-2 rounded-md' />
                     </div>
                 </div>
+            </div> */}
+            <div className='relative h-20'>
+            <UseCardNav />
             </div>
 
             {/* Main content */}
-            <div className="bg-[#1e1e1e] w-full h-full p-4 rounded-l-2xl max-md:mt-10 overflow-y-auto scroll-grid">
+            <div className="bg-[#1e1e1e] w-full h-[100%] max-sm:h-fill p-4 rounded-l-2xl mt-2 overflow-y-auto scroll-grid">
                 <Outlet />
             </div>
         </div>
