@@ -13,7 +13,7 @@ function Landing() {
   }, []);
 
   return (
-    <div className='w-full min-h-[250dvh] relative text-white bg-black'>
+    <div className='w-full min-h-[200dvh] relative text-white bg-black'>
       <DarkVeil />
 
       <div className='absolute top-0 w-full py-8 flex flex-col gap-8 px-4 sm:px-6 md:px-10'>
