@@ -61,7 +61,7 @@ function Landing() {
 
         {/* Behind the Build */}
         <div className='mx-auto w-full sm:max-w-3xl flex flex-col gap-8'>
-          <p className='font-semibold underline decoration-white decoration-2 underline-offset-4 w-fit border-b-amber-100 text-[clamp(1rem,4vw,1.5rem)] leading-snug px-2 sm:px-4'> Behind the Build </p>
+          <p className='font-semibold underline decoration-white decoration-2 underline-offset-4 w-90 border-b-amber-100 text-[clamp(1rem,4vw,1.5rem)] leading-snug px-2 sm:px-4'> Behind the Build </p>
           <UseLogoLoop />
         </div>
 
