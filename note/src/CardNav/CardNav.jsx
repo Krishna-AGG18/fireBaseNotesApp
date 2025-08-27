@@ -171,7 +171,7 @@ const CardNav = ({
             {/* Logout button */}
             <button
               type="button"
-              className="card-nav-cta-button inline-flex border-0 rounded-[calc(0.75rem-0.2rem)] px-3 py-1 text-sm md:px-4 md:h-full font-medium cursor-pointer transition-colors duration-300 justify-center items-center"
+              className="card-nav-cta-button inline-flex border-0 rounded-[calc(0.75rem-0.2rem)] px-3 py-1 text-sm md:px-4 md:h-full font-medium cursor-pointer transition-colors duration-300 justify-center items-center mr-2"
               style={{ backgroundColor: "#DFD0B8", color: "#121212" }}
               onClick={handleLogout}
             >
