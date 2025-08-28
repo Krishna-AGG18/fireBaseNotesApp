@@ -19,7 +19,7 @@ const techLogos = [
 
 function UseLogoLoop() {
   return (
-    <div style={{ height: '100px', position: 'relative', overflow: 'hidden'}} className='text-white max-w-3xl mx-auto'>
+    <div style={{ height: '100px', position: 'relative', overflow: 'hidden'}} className='text-white w-full mx-auto'>
       <LogoLoop
         logos={techLogos}
         speed={50}
