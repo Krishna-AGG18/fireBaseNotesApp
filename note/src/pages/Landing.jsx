@@ -141,8 +141,13 @@ function Landing() {
 
         <AnimatedFAQ />
         {/* Behind the Build */}
+<<<<<<< HEAD
         <div className='mx-auto w-full  flex flex-col gap-8'>
           <p className='font-semibold underline decoration-white decoration-2 underline-offset-4 w-fit border-b-amber-100 text-[clamp(1rem,4vw,1.5rem)] leading-snug px-2 sm:px-4'> Behind the Build </p>
+=======
+        <div className='mx-auto w-full sm:max-w-3xl flex flex-col gap-8'>
+          <p className='font-semibold underline decoration-white decoration-2 underline-offset-4 w-90 border-b-amber-100 text-[clamp(1rem,4vw,1.5rem)] leading-snug px-2 sm:px-4'> Behind the Build </p>
+>>>>>>> 15eb05378fb43604acca1266c597fe4ae9505541
           <UseLogoLoop />
         </div>
 

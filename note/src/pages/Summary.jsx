@@ -46,7 +46,7 @@ function Summary() {
 
   if (notes.length === 0) {
     return (
-      <div className="p-4 text-white overflow-y-auto scroll-grid min-h-screen">
+      <div className="p-4 text-white overflow-y-auto scroll-grid min-h-screen max-sm:p-2">
         <h1 className="text-2xl font-bold border-b border-[#565656] pb-1">
           📒 Notes Summary : No Notes
         </h1>
